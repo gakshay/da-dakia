@@ -78,10 +78,34 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
-          <widget class="GtkLabel" id="headi">
+          <widget class="GtkHBox" id="hbox1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Welcome to eDakia</property>
+            <child>
+              <widget class="GtkImage" id="image2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixbuf">logopostbox-small.jpg</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="mobileHeading">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">    Welcome to e-Dakia
+ई-डाकिया में आपका स्वागत है </property>
+              </widget>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
           </widget>
           <packing>
             <property name="expand">True</property>
@@ -90,10 +114,39 @@
           </packing>
         </child>
         <child>
-          <widget class="GtkLabel" id="label_sender_mobile">
+          <widget class="GtkHBox" id="hbox4">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Enter your mobile number</property>
+            <child>
+              <widget class="GtkLabel" id="label_sender_mobile">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Enter your Mobile Number
+आपना मोबाइल नंबर प्रेक्षित करे </property>
+              </widget>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkEntry" id="field_sender_mobile">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">13</property>
+                <property name="invisible_char">•</property>
+                <property name="primary_icon_activatable">False</property>
+                <property name="secondary_icon_activatable">False</property>
+                <property name="primary_icon_sensitive">True</property>
+                <property name="secondary_icon_sensitive">True</property>
+              </widget>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
           </widget>
           <packing>
             <property name="expand">True</property>
@@ -102,40 +155,31 @@
           </packing>
         </child>
         <child>
-          <widget class="GtkTable" id="table1">
-            <property name="visible">True</property>
+          <widget class="GtkHBox" id="pydakiaError">
             <property name="can_focus">False</property>
-            <property name="n_columns">3</property>
             <child>
-              <widget class="GtkEntry" id="field_sender_mobile">
+              <widget class="GtkImage" id="image3">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="has_focus">True</property>
-                <property name="invisible_char">•</property>
-                <property name="primary_icon_activatable">False</property>
-                <property name="secondary_icon_activatable">False</property>
-                <property name="primary_icon_sensitive">True</property>
-                <property name="secondary_icon_sensitive">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkImage" id="success">
                 <property name="can_focus">False</property>
-                <property name="pixbuf">icon.success.gif</property>
+                <property name="stock">gtk-dialog-error</property>
               </widget>
               <packing>
-                <property name="left_attach">1</property>
-                <property name="right_attach">2</property>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkImage" id="error">
+              <widget class="GtkLabel" id="error">
+                <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">error-icon.png</property>
+                <property name="label" translatable="yes">Invalid Please Enter Again
+गलत कृपया पुनेह प्रेक्षित करे </property>
               </widget>
               <packing>
-                <property name="left_attach">2</property>
-                <property name="right_attach">3</property>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </widget>
@@ -150,14 +194,15 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="spacing">10</property>
-            <property name="layout_style">end</property>
+            <property name="layout_style">center</property>
             <child>
               <widget class="GtkButton" id="oncancel">
-                <property name="label" translatable="yes">Cancel</property>
+                <property name="label">gtk-cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
+                <property name="use_stock">True</property>
                 <signal name="clicked" handler="on_oncancel_clicked" swapped="no"/>
               </widget>
               <packing>
@@ -168,11 +213,12 @@
             </child>
             <child>
               <widget class="GtkButton" id="enter">
-                <property name="label" translatable="yes">Enter</property>
+                <property name="label">gtk-go-forward</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
+                <property name="use_stock">True</property>
                 <signal name="clicked" handler="on_enter_clicked" swapped="no"/>
               </widget>
               <packing>
@@ -204,10 +250,34 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
-          <widget class="GtkLabel" id="heading">
+          <widget class="GtkHBox" id="hbox6">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Welcome to eDakia </property>
+            <child>
+              <widget class="GtkImage" id="image4">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixbuf">logopostbox-small.jpg</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="passwordHeading">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">    Welcome to e-Dakia
+ई-डाकिया में आपका स्वागत है </property>
+              </widget>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
           </widget>
           <packing>
             <property name="expand">True</property>
@@ -257,13 +327,13 @@
           </packing>
         </child>
         <child>
-          <widget class="GtkHBox" id="hbox3">
-            <property name="visible">True</property>
+          <widget class="GtkHBox" id="pypasswordError">
             <property name="can_focus">False</property>
             <child>
-              <widget class="GtkImage" id="password_error">
+              <widget class="GtkImage" id="image5">
+                <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">error-icon.png</property>
+                <property name="stock">gtk-dialog-error</property>
               </widget>
               <packing>
                 <property name="expand">True</property>
@@ -275,6 +345,8 @@
               <widget class="GtkLabel" id="password_status">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Invalid. Only 6 Digits Allowed
+गलत सिर्फ ६ अंक डाले </property>
               </widget>
               <packing>
                 <property name="expand">True</property>
@@ -317,8 +389,6 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
-                <property name="xalign">0.63999998569488525</property>
-                <property name="yalign">0.63999998569488525</property>
                 <signal name="clicked" handler="on_login_clicked" swapped="no"/>
               </widget>
               <packing>

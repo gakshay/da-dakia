@@ -3,7 +3,7 @@
 import sys
 import os
 from eDakia import Edakia
-
+from mobile import Mobile
 try:
   import pygtk
   pygtk.require("2.24")
@@ -19,7 +19,7 @@ except:
 class MainWindow():
 
   def __init__(self):
-    gladefile = "dakia.glade"
+    gladefile = "ui/dakia.glade"
     self.xml =  gtk.glade.XML(gladefile, "mainWindow")
     dic = { "destroy" : gtk.main_quit,
             "on_mainWindow_key_press_event" : self.main_window_key_press,
@@ -34,7 +34,7 @@ class MainWindow():
     if keyname == "1":
       print "1 is pressed"
       self.mainwindow.hide()
-      Edakia()
+      Mobile()
     elif keyname == "2":
       print "2 is pressed"
     
