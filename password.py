@@ -32,6 +32,7 @@ class Password (object):
     self.password = ""
     dic = { "on_pypassword_destroy" : gtk.main_quit,
             "on_login_clicked" : self.password_entered,
+            "on_field_sender_password_key_press_event" : self.pypassword_password_key_press_event,
             "on_password_cancel_clicked" : gtk.main_quit,
             "destroy" : gtk.main_quit
           }
@@ -99,4 +100,11 @@ class Password (object):
     else:
       print "reading error" 
       return False, "Network not reachable"
+
+  def pypassword_password_key_press_event(self, widget, event):
+    keyname = gtk.gdk.keyval_name(event.keyval)
+    #print "Key %s (%d) was pressed" % (keyname, event.keyval)
+    if keyname == "Return":
+      print "Return is pressed"
+      self.password_entered(widget)  
 

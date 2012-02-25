@@ -140,6 +140,7 @@
                 <property name="secondary_icon_activatable">False</property>
                 <property name="primary_icon_sensitive">True</property>
                 <property name="secondary_icon_sensitive">True</property>
+                <signal name="key_press_event" handler="on_field_sender_mobile_key_press_event" swapped="no"/>
               </widget>
               <packing>
                 <property name="expand">True</property>
@@ -161,6 +162,7 @@
               <widget class="GtkImage" id="image3">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="xalign">0.89999997615814209</property>
                 <property name="stock">gtk-dialog-error</property>
               </widget>
               <packing>
@@ -173,6 +175,7 @@
               <widget class="GtkLabel" id="error">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="xalign">0.10000000149011612</property>
                 <property name="label" translatable="yes">Invalid Please Enter Again
 गलत कृपया पुनेह प्रेक्षित करे </property>
               </widget>
@@ -293,7 +296,8 @@
               <widget class="GtkLabel" id="label_sender_password">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Enter your password</property>
+                <property name="label" translatable="yes">Enter your password
+आपना पासवर्ड डाले </property>
               </widget>
               <packing>
                 <property name="expand">True</property>
@@ -312,6 +316,7 @@
                 <property name="secondary_icon_activatable">False</property>
                 <property name="primary_icon_sensitive">True</property>
                 <property name="secondary_icon_sensitive">True</property>
+                <signal name="key_press_event" handler="on_field_sender_password_key_press_event" swapped="no"/>
               </widget>
               <packing>
                 <property name="expand">True</property>
@@ -333,6 +338,7 @@
               <widget class="GtkImage" id="image5">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="xalign">0.89999997615814209</property>
                 <property name="stock">gtk-dialog-error</property>
               </widget>
               <packing>
@@ -345,6 +351,7 @@
               <widget class="GtkLabel" id="password_status">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="xalign">0.10000000149011612</property>
                 <property name="label" translatable="yes">Invalid. Only 6 Digits Allowed
 गलत सिर्फ ६ अंक डाले </property>
               </widget>

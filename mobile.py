@@ -25,6 +25,7 @@ class Mobile (object):
     self.password = ""
     dic = { "on_pydakia_destroy" : gtk.main_quit,
             "on_enter_clicked" : self.mobile_entered,
+            "on_field_sender_mobile_key_press_event" : self.pydakia_mobile_key_press_event,
             "on_oncancel_clicked" : gtk.main_quit,
             "destroy" : gtk.main_quit
           }
@@ -52,3 +53,9 @@ class Mobile (object):
     else:
       return False, "Given Mobile Number is  not Valid"
       
+  def pydakia_mobile_key_press_event(self, widget, event):
+    keyname = gtk.gdk.keyval_name(event.keyval)
+    #print "Key %s (%d) was pressed" % (keyname, event.keyval)
+    if keyname == "Return":
+      print "Return is pressed"
+      self.mobile_entered(widget)  
