@@ -8,6 +8,7 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="window_position">center-always</property>
+    <property name="icon">logopostbox-small.jpg</property>
     <signal name="destroy" handler="on_successWindow_destroy" swapped="no"/>
     <child>
       <widget class="GtkVBox" id="vbox1">
