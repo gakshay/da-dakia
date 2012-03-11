@@ -3,7 +3,6 @@
 import sys
 import os
 from mainWindow import MainWindow
-
 try:
   import pygtk
   pygtk.require("2.24")
@@ -15,8 +14,8 @@ try:
   import gtk.glade
 except:
   sys.exit(1)
-
-class Dakia():
+  
+class Dakia:
 
   def __init__(self,):
     mainwindow = MainWindow()

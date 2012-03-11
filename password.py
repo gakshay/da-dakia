@@ -7,7 +7,9 @@ import pycurl
 import cStringIO
 import os
 from scanPage import ScanPage
-
+from processWindow import ProcessWindow
+import threading
+import time
 try:
   import pygtk
   pygtk.require("2.24")
@@ -22,8 +24,10 @@ except:
 
 USER_LOGIN_URL = "edakia.in/api/users.json"
 PROTOCOL = "http://"
+#import gobject
 
-class Password (object):
+#gobject.threads_init()
+class Password:
 
   def __init__(self, mobile):
     self.gladefile = "ui/edakia.glade"
@@ -39,18 +43,21 @@ class Password (object):
 
     self.wTree.signal_autoconnect(dic)
     self.wTree.get_widget("pypassword").show()
+    self.loading = ProcessWindow()
 
   def password_entered(self, widget, data=None):
     self.password = self.wTree.get_widget("field_sender_password").get_text()
     print self.password
     status, message = self.validate_password()
     if status:
+      #ps = Processing(self)
+      #ps.start()
       self.display_process_window()
-      self.wTree.get_widget("pypasswordError").hide()
       login_response, login_message = self.authenticate_user()
+      #ps.quit = True
       if login_response:
         self.wTree.get_widget("pypassword").hide()
-        #self.wTree.get_widget("processWindow").hide()
+        self.loading.hide()
         ScanPage(self.mobile, self.password)
       else:
         self.hide_process_window(login_message)
@@ -64,25 +71,22 @@ class Password (object):
     if p.match(self.password)!= None :
       return True, "Given Password is Valid"
     else:
-      return False, "Given Password is  not Valid"
+      return False, "Given Password is not Valid"
   
   def display_process_window(self):
     self.wTree.get_widget("pypasswordError").hide()
-    self.wTree.get_widget("password_status").hide()
-    #self.wTree.get_widget("processWindow").show()
-    #self.wTree.get_widget("pypassword").hide()
-  
+    self.wTree.get_widget("pypassword").hide()
+    self.loading.show()
+      
   def hide_process_window(self, message):
-    self.wTree.get_widget("pypasswordError").show()
+    self.wTree.get_widget("field_sender_password").set_text("")
     status = self.wTree.get_widget("password_status")
     status.set_text(message)
-    self.wTree.get_widget("password_status").show()
-    #self.wTree.get_widget("processWindow").hide()
+    self.wTree.get_widget("pypasswordError").show()
+    self.loading.hide()
     self.wTree.get_widget("pypassword").show()
-    self.wTree.get_widget("field_sender_password").set_text("")
-   
+
   def authenticate_user(self):
-    #self.wTree.get_widget("processWindow").show()
     buf = cStringIO.StringIO()
     p = pycurl.Curl()
     p.setopt(p.WRITEFUNCTION, buf.write)
@@ -107,4 +111,24 @@ class Password (object):
     if keyname == "Return":
       print "Return is pressed"
       self.password_entered(widget)  
-
+      
+      
+class Processing(threading.Thread):
+	"""This class sets the fraction of the progressbar"""
+	
+	def __init__(self, obj):
+		super(Processing, self).__init__()
+		self.ppd = obj
+		self.quit = False
+		print self.ppd
+	
+	def run(self):
+		"""Run method, this is the code that runs while thread is alive."""
+		#While the stopthread event isn't setted, the thread keeps going on
+		while not self.quit :
+			gobject.idle_add(self.show_loading_window)
+			time.sleep(0.1)
+			
+	def show_loading_window(self):
+		self.ppd.display_process_window()
+		return False

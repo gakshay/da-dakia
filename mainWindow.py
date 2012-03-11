@@ -4,6 +4,7 @@ import sys
 import os
 from eDakia import Edakia
 from mobile import Mobile
+
 try:
   import pygtk
   pygtk.require("2.24")
@@ -16,7 +17,7 @@ try:
 except:
   sys.exit(1)
 
-class MainWindow():
+class MainWindow:
 
   def __init__(self):
     gladefile = "ui/dakia.glade"
@@ -34,8 +35,10 @@ class MainWindow():
     if keyname == "1":
       print "1 is pressed"
       self.mainwindow.hide()
-      Mobile()
+      Mobile("send")
     elif keyname == "2":
       print "2 is pressed"
+      self.mainwindow.hide()
+      Mobile("receive")
     
 

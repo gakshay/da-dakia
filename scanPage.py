@@ -15,7 +15,7 @@ try:
 except:
   sys.exit(1)
 
-class ScanPage (object):
+class ScanPage:
   def __init__(self, mobile, password):
     self.mobile = mobile
     self.password = password

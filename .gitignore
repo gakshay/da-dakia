@@ -1,0 +1,8 @@
+files/receive/
+files/send/inbox/
+files/send/outbox/
+files/send/processing/
+files/send/error/
+files/send/archive/
+files/send/log
+*.pyc
