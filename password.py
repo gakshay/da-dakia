@@ -25,8 +25,10 @@ except:
 USER_LOGIN_URL = "edakia.in/api/users.json"
 PROTOCOL = "http://"
 #import gobject
-
 #gobject.threads_init()
+
+from receiverMobile import ReceiverMobile
+
 class Password:
 
   def __init__(self, mobile):
@@ -58,11 +60,12 @@ class Password:
       if login_response:
         self.wTree.get_widget("pypassword").hide()
         self.loading.hide()
-        ScanPage(self.mobile, self.password)
+        ReceiverMobile(self.mobile, self.password)
       else:
         self.hide_process_window(login_message)
      
     else:
+      self.password = ""
       self.wTree.get_widget("field_sender_password").set_text("")
       self.wTree.get_widget("pypasswordError").show()
   

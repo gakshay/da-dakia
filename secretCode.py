@@ -16,6 +16,8 @@ except:
   sys.exit(1)
 
 from successWindow import SuccessWindow
+import urllib
+from xml.dom.minidom import parseString
 
 DOCUMENT_RECEIVE_URL = "edakia.in/transactions/receive.xml"
 PROTOCOL = "http://"
@@ -59,11 +61,42 @@ class SecretCode:
       
   def secret_code_entered_success(self, message):
     print message
-    self.wTree.get_widget("secret_window").hide()
-    ReceiveSuccessWindow()
+    status, result = self.document_request()
+    if status:
+      self.fetch_document(result)
+    else:
+      self.secret_code_entered_failure("result")
+    #self.wTree.get_widget("secret_window").hide()
+    #ReceiveSuccessWindow()
     
     
   def secret_code_entered_failure(self, message):
     print message
     self.wTree.get_widget("secret_error_hbox").show()
+  
+  def document_request(self):
+    parameters = urllib.urlencode({"transaction[receiver_mobile]": self.mobile, "transaction[document_secret]" : self.secret_code})
+    f = urllib.urlopen(PROTOCOL + DOCUMENT_RECEIVE_URL+"?"+parameters)
+    data = f.read()
+    print data
+    f.close()
+
+    #parse the xml you downloaded
+    dom = parseString(data)
+    #retrieve the first xml tag (<tag>data</tag>) that the parser finds with name tagName:
+    try:
+      xmlTag = dom.getElementsByTagName('document_url')[0].toxml()
+      print xmlTag
+      url=xmlTag.replace('<document_url>','').replace('</document_url>','')
+      print url
+      return True, url
+    except:
+      xmlTag = dom.getElementsByTagName('error')[0].toxml()
+      print xmlTag
+      error_msg=xmlTag.replace('<error>','').replace('</error>','')
+      print error_msg
+      return False, error_msg
+      
+  def fetch_document(self, url):
+    pass
     
