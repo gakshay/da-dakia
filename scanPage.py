@@ -42,7 +42,7 @@ class ScanPage:
     file.close
 
     print "Scanning done"    
-    #scan_result = os.system("scanimage --format=tiff > %(path)s/%(image)s.tiff" % {'path' : INBOXPATH, 'image' : folder_name})
+    scan_result = os.system("scanimage --format=tiff > %(path)s/%(image)s.tiff" % {'path' : INBOXPATH, 'image' : folder_name})
 
     self.wTree.get_widget("scanWindow").hide()
     SuccessWindow()
