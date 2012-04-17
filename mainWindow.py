@@ -2,7 +2,7 @@
 
 import sys
 import os
-from eDakia import Edakia
+#from eDakia import Edakia
 from mobile import Mobile
 
 try:
