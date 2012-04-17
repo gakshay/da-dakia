@@ -18,10 +18,10 @@ except:
 class ReceiveSuccessWindow:
 
   def __init__(self):
-    gladefile = "ui/final_success.glade"
+    gladefile = "ui/receive_success.glade"
     self.xml =  gtk.glade.XML(gladefile, "receiveSuccessWindow")
     dic = { "destroy" : gtk.main_quit,
-            "on_printButton_clicked" : self.print_button_clicked
+            "on_printButton_clicked" : self.print_button_clicked,
             "on_receiveSuccessWindow_destroy" : gtk.main_quit}
 
     self.xml.signal_autoconnect(dic)

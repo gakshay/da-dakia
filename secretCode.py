@@ -3,6 +3,7 @@
 import sys
 import os
 import re
+import urllib
 try:
   import pygtk
   pygtk.require("2.24")
@@ -15,11 +16,12 @@ try:
 except:
   sys.exit(1)
 
-from successWindow import SuccessWindow
+from receiveSuccessWindow import ReceiveSuccessWindow
 import urllib
 from xml.dom.minidom import parseString
 
 DOCUMENT_RECEIVE_URL = "edakia.in/transactions/receive.xml"
+RECEIVE_PATH = "./files/receive"
 PROTOCOL = "http://"
 
 class SecretCode:
@@ -58,12 +60,15 @@ class SecretCode:
     if keyname == "Return":
       print "Return is pressed"
       self.secret_code_entered(widget)
+    else:
+      self.wTree.get_widget("secret_error_hbox").hide()
       
   def secret_code_entered_success(self, message):
     print message
     status, result = self.document_request()
     if status:
-      self.fetch_document(result)
+      self.fetch_document("%(protocol)s%(result)s" % {'result' : result, 'protocol' : PROTOCOL})
+      ReceiveSuccessWindow()
     else:
       self.secret_code_entered_failure("result")
     #self.wTree.get_widget("secret_window").hide()
@@ -98,5 +103,6 @@ class SecretCode:
       return False, error_msg
       
   def fetch_document(self, url):
-    pass
-    
+    url_elements = url.split('/')
+    file_name = url_elements[-1]
+    urllib.urlretrieve(url, "%(path)s/%(file_name)s" % {'path' : RECEIVE_PATH, 'file_name' : file_name})
