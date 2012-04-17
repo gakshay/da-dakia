@@ -2,7 +2,7 @@
 
 # Check the credentials here first before running the script
 PROJECTDIR=$PWD
-LOCALEXPORTDIR=$LOCALEXPORTDIR/files/send
+LOCALEXPORTDIR=$PROJECTDIR/files/send
 OUTBOX=$LOCALEXPORTDIR/outbox
 INBOX=$LOCALEXPORTDIR/inbox
 LOGDIR=$LOCALEXPORTDIR/log
@@ -11,7 +11,7 @@ CONTROLDIR=$LOCALEXPORTDIR/control
 ERRORDIR=$LOCALEXPORTDIR/error
 ARCHIVEDIR=$LOCALEXPORTDIR/archive
 mkdir -p $INBOX $OUTBOX $LOGDIR $PROCDIR $CONTROLDIR $ERRORDIR $ARCHIVEDIR
-
+echo $LOCALEXPORTDIR
 
 # ========================================================
 # PROGRAM start

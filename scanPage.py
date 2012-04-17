@@ -36,16 +36,16 @@ class ScanPage:
     file_name =  "%(path)s/%(folder_name)s/%(folder_name)s.txt" % { 'path' : INBOXPATH,  'folder_name' : folder_name }
     scan_result = os.system("scanimage --format=tiff > %(path)s/%(image)s.tiff" % {'path' : INBOXPATH, 'image' : folder_name})
   
-		os.system("mkdir -p %(path)s/%(folder_name)s" % {'path' : INBOXPATH, 'folder_name' : folder_name})
+    os.system("mkdir -p %(path)s/%(folder_name)s" % {'path' : INBOXPATH, 'folder_name' : folder_name})
     fin = open(file_name, "w")
     print >>fin, self.mobile 
     print >>fin, self.password
     print >>fin, self.receiver
     file.close
-		os.system("mv %(path)s/%(image)s.tiff %(path)s/%(folder_name)s/%(image)s.tiff" % {'path' : INBOXPATH, 'folder_name' : folder_name, 'image' : folder_name})
+    os.system("mv %(path)s/%(image)s.tiff %(path)s/%(folder_name)s/%(image)s.tiff" % {'path' : INBOXPATH, 'folder_name' : folder_name, 'image' : folder_name})
     print "Scanning done"    
     
-		self.wTree.get_widget("scanWindow").hide()
+    self.wTree.get_widget("scanWindow").hide()
 
     SuccessWindow()
 
