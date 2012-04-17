@@ -17,8 +17,10 @@ except:
 
 class ReceiveSuccessWindow:
 
-  def __init__(self):
+  def __init__(self, filename):
     gladefile = "ui/receive_success.glade"
+    self.filename = filename
+    print self.filename
     self.xml =  gtk.glade.XML(gladefile, "receiveSuccessWindow")
     dic = { "destroy" : gtk.main_quit,
             "on_printButton_clicked" : self.print_button_clicked,
@@ -26,6 +28,8 @@ class ReceiveSuccessWindow:
 
     self.xml.signal_autoconnect(dic)
     
-  def print_button_clicked(self):
+  def print_button_clicked(self, widget, data = None):
     print "print button clicked"
+    os.system("convert %(filename)s test.pdf" % {'filename': self.filename})
+    os.system("lp %(filename)s" % {'filename' : "test.pdf"})
     # print command to take print out from connected printer

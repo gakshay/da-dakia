@@ -68,7 +68,8 @@ class SecretCode:
     status, result = self.document_request()
     if status:
       self.fetch_document("%(protocol)s%(result)s" % {'result' : result, 'protocol' : PROTOCOL})
-      ReceiveSuccessWindow()
+      self.wTree.get_widget("secret_window").hide()
+      ReceiveSuccessWindow("%(path)s/%(file)s" % {'path' : RECEIVE_PATH, 'file': self.file_name})
     else:
       self.secret_code_entered_failure("result")
     #self.wTree.get_widget("secret_window").hide()
@@ -104,5 +105,5 @@ class SecretCode:
       
   def fetch_document(self, url):
     url_elements = url.split('/')
-    file_name = url_elements[-1]
-    urllib.urlretrieve(url, "%(path)s/%(file_name)s" % {'path' : RECEIVE_PATH, 'file_name' : file_name})
+    self.file_name = url_elements[-1]
+    urllib.urlretrieve(url, "%(path)s/%(file_name)s" % {'path' : RECEIVE_PATH, 'file_name' : self.file_name})
