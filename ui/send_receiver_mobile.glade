@@ -10,7 +10,7 @@
     <property name="title" translatable="yes">eDakia - Mail for All</property>
     <property name="window_position">center-always</property>
     <property name="icon">logopostbox.jpg</property>
-    <signal name="destroy" handler="on_receiverMobileWindow_destroy" swapped="no"/>
+    <signal name="destroy" handler="on_receiverMobileWindow_destroy" />
     <child>
       <widget class="GtkVBox" id="vbox3">
         <property name="visible">True</property>
@@ -79,7 +79,7 @@
                 <property name="secondary_icon_activatable">False</property>
                 <property name="primary_icon_sensitive">True</property>
                 <property name="secondary_icon_sensitive">True</property>
-                <signal name="key_press_event" handler="on_field_receiver_mobile_key_press_event" swapped="no"/>
+                <signal name="key_press_event" handler="on_field_receiver_mobile_key_press_event" />
               </widget>
               <packing>
                 <property name="expand">True</property>
@@ -145,7 +145,7 @@
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
                 <property name="use_stock">True</property>
-                <signal name="clicked" handler="on_oncancel_clicked" swapped="no"/>
+                <signal name="clicked" handler="on_oncancel_clicked" />
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -161,7 +161,7 @@
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
                 <property name="use_stock">True</property>
-                <signal name="clicked" handler="on_enter_clicked" swapped="no"/>
+                <signal name="clicked" handler="on_enter_clicked" />
               </widget>
               <packing>
                 <property name="expand">False</property>

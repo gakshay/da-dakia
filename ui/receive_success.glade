@@ -9,7 +9,7 @@
     <property name="can_focus">False</property>
     <property name="window_position">center-always</property>
     <property name="icon">logopostbox-small.jpg</property>
-    <signal name="destroy" handler="on_successWindow_destroy" swapped="no"/>
+    <signal name="destroy" handler="on_successWindow_destroy" />
     <child>
       <widget class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
@@ -103,7 +103,7 @@
                 <property name="has_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
-                <signal name="clicked" handler="on_printButton_clicked" swapped="no"/>
+                <signal name="clicked" handler="on_printButton_clicked" />
               </widget>
               <packing>
                 <property name="expand">False</property>
