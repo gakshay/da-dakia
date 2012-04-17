@@ -46,5 +46,6 @@ class ScanPage:
     print "Scanning done"    
     
 		self.wTree.get_widget("scanWindow").hide()
+
     SuccessWindow()
 
