@@ -1,7 +1,7 @@
 #!/bin/bash                                                               
                                                                           
 # Check the credentials here first before running the script              
-PROJECTDIR=$PWD                                             
+PROJECTDIR=$EDAKIA_PATH                                             
 LOCALEXPORTDIR=$PROJECTDIR/files/send                              
 OUTBOX=$LOCALEXPORTDIR/outbox                                             
 INBOX=$LOCALEXPORTDIR/inbox                                               

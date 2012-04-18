@@ -1,3 +1,3 @@
-sh /home/tux/scripts/cron.sh
-crontab /home/tux/scripts/crontab
-sh /home/tux/scripts/cups.sh
+sh $EDAKIA_PATH/scripts/client/cron.sh
+crontab $EDAKIA_PATH/scripts/client/crontab
+sh $EDAKIA_PATH/scripts/client/cups.sh

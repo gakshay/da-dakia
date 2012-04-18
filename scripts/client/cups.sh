@@ -7,7 +7,7 @@ root
 echo "Removing CUPSD socket..."
 sock=/var/run/cups/cups.sock
 if [ -S "$sock" ]; then
-	rm -rf "$sock"
+	rm -rf $sock
 fi
 
 echo "Starting CUPS daemon..."
