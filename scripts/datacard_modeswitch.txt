@@ -1,0 +1,2 @@
+usb_modeswitch --default-vendor 19d2 --default-product fff5-I -W 
+-c /usr/share/usb_modeswitch/19d2\:fff5
