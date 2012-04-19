@@ -20,6 +20,9 @@ Install
    `sh $EDAKIA_PATH/scripts/client/local.sh`
     EDAKIA_PATH is the path where you downloaded this project and should change according to your path
     local.sh sets the default cron, make printer/scanner permissible
+3. If hindi is not supported by your system
+     add ui/fonts/raghu.ttf to your fonts directory e.g `cp ui/fonts/raghu.ttf ~/.fonts/`
+4. To set locale as hi_IN set `LOCALE=hi_IN; LC_ALL=hi_IN export; $LOCALE $LC_ALL`
 
 RUN
 ===
@@ -35,7 +38,7 @@ How to Start ATOM
 =================
 1. Short the corresponding PINS marked red on the ATOM Board
 2. Make sure to insert our EDAKIA bootable SlitAZ pen drive
-3. At boot promt enter
+3. At boot prompt 
    **press enter**
     or
     **slitaz vga=791** if using a monitor and having problems in display
