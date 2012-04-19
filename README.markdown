@@ -29,3 +29,14 @@ RUN
 ToDO
 ====
 1. SMS integration at server side (http://www.edakia.in) 
+
+
+How to Start ATOM
+=================
+1. Short the corresponding PINS marked red on the ATOM Board
+2. Make sure to insert our EDAKIA bootable SlitAZ pen drive
+3. At boot promt enter
+   **press enter**
+    or
+    **slitaz vga=791** if using a monitor and having problems in display
+4. Once booted follow the steps on how to run an application
