@@ -1,1 +1,1 @@
-usb_modeswitch --default-vendor 19d2 --default-product fff5-I -W -c /usr/share/usb_modeswitch/19d2\:fff5
+usb_modeswitch --default-vendor 12d1 --default-product 1446 -I -W -c /usr/share/usb_modeswitch/12d1\:1446
