@@ -24,6 +24,8 @@ class MainWindow:
     self.xml =  gtk.glade.XML(gladefile, "mainWindow")
     dic = { "destroy" : gtk.main_quit,
             "on_mainWindow_key_press_event" : self.main_window_key_press,
+            "on_mainSend_clicked" : self.send_clicked,
+            "on_mainReceive_clicked" : self.receive_clicked,
             "on_mainWindow_destroy" : gtk.main_quit}
 
     self.xml.signal_autoconnect(dic)
@@ -41,4 +43,10 @@ class MainWindow:
       self.mainwindow.hide()
       Mobile("receive")
     
+  def send_clicked(self, widget, data=None):
+    self.mainwindow.hide()
+    Mobile("send")
 
+  def receive_clicked(self, widget, data=None):
+    self.mainwindow.hide()
+    Mobile("receive")
