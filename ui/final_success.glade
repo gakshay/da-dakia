@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <glade-interface>
   <!-- interface-requires gtk+ 2.24 -->
   <!-- interface-naming-policy project-wide -->
@@ -6,22 +6,18 @@
     <property name="width_request">400</property>
     <property name="height_request">250</property>
     <property name="visible">True</property>
-    <property name="can_focus">False</property>
     <property name="window_position">center-always</property>
     <property name="icon">logopostbox-small.jpg</property>
-    <signal name="destroy" handler="on_successWindow_destroy" />
+    <signal name="destroy" handler="on_successWindow_destroy"/>
     <child>
       <widget class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <child>
           <widget class="GtkHBox" id="hbox1">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <child>
               <widget class="GtkImage" id="image1">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="pixbuf">logopostbox-small.jpg</property>
               </widget>
               <packing>
@@ -33,13 +29,10 @@
             <child>
               <widget class="GtkLabel" id="successHeading">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="label" translatable="yes">    Welcome to e-Dakia
-ई-डाकिया में आपका स्वागत है </property>
+&#x908;-&#x921;&#x93E;&#x915;&#x93F;&#x92F;&#x93E; &#x92E;&#x947;&#x902; &#x906;&#x92A;&#x915;&#x93E; &#x938;&#x94D;&#x935;&#x93E;&#x917;&#x924; &#x939;&#x948; </property>
               </widget>
               <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
                 <property name="position">1</property>
               </packing>
             </child>
@@ -53,52 +46,66 @@
         <child>
           <widget class="GtkHBox" id="hbox2">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <child>
-              <widget class="GtkImage" id="image2">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="stock">gtk-yes</property>
-              </widget>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
             <child>
               <widget class="GtkLabel" id="labelSuccess">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Paper Shared Successfully
 You will receive an SMS in a while
 
 
-डाक भेज दी गयी है| 
-थोड़ी देर में आपके मोबाइल पे मेसेज आ जाएगा </property>
+&#x921;&#x93E;&#x915; &#x92D;&#x947;&#x91C; &#x926;&#x940; &#x917;&#x92F;&#x940; &#x939;&#x948;| 
+&#x925;&#x94B;&#x95C;&#x940; &#x926;&#x947;&#x930; &#x92E;&#x947;&#x902; &#x906;&#x92A;&#x915;&#x947; &#x92E;&#x94B;&#x92C;&#x93E;&#x907;&#x932; &#x92A;&#x947; &#x92E;&#x947;&#x938;&#x947;&#x91C; &#x906; &#x91C;&#x93E;&#x90F;&#x917;&#x93E; </property>
               </widget>
               <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkVBox" id="vbox2">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkImage" id="image2">
+                    <property name="visible">True</property>
+                    <property name="stock">gtk-yes</property>
+                  </widget>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="button1">
+                    <property name="label" translatable="yes">Thanks
+&#x927;&#x928;&#x94D;&#x92F;&#x935;&#x93E;&#x926;&#x94D; </property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="has_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_button1_clicked" object="successWindow"/>
+                    <signal name="enter" handler="on_button1_enter" object="successWindow"/>
+                  </widget>
+                  <packing>
+                    <property name="fill">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="padding">10</property>
                 <property name="position">1</property>
               </packing>
             </child>
           </widget>
           <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
             <property name="position">1</property>
           </packing>
         </child>
         <child>
           <widget class="GtkStatusbar" id="statusbar1">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="spacing">2</property>
           </widget>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">True</property>
             <property name="position">2</property>
           </packing>
         </child>

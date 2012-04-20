@@ -21,6 +21,8 @@ class SuccessWindow():
     gladefile = "ui/final_success.glade"
     self.xml =  gtk.glade.XML(gladefile, "successWindow")
     dic = { "destroy" : gtk.main_quit,
+            "on_button1_clicked" : gtk.main_quit,
+            "on_button1_enter" : gtk.main_quit,
             "on_successWindow_destroy" : gtk.main_quit}
 
     self.xml.signal_autoconnect(dic)
