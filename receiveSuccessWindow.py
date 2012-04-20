@@ -14,6 +14,7 @@ try:
   import gtk.glade
 except:
   sys.exit(1)
+from printSuccessWindow import PrintSuccessWindow
 
 class ReceiveSuccessWindow:
 
@@ -33,3 +34,4 @@ class ReceiveSuccessWindow:
     os.system("convert %(filename)s test.pdf" % {'filename': self.filename})
     os.system("lp %(filename)s" % {'filename' : "test.pdf"})
     # print command to take print out from connected printer
+    PrintSuccessWindow()
